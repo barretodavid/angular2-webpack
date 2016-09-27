@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -42,8 +44,9 @@ module.exports = {
     extensions: ['.js', '.ts']
   },
   module: {
-    loaders: [
-      { test: /.ts$/, loader: 'awesome-typescript-loader' },
+    rules: [
+      { enforce: 'pre', test: /.ts$/, loader: 'tslint', exclude: /node_modules/ },
+      { test: /.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/ },
       { test: /.json$/, loader: 'json-loader' },
       { test: /.html$/, loader: 'raw' },
       { test: /.css$/, loaders: ['css-to-string', 'css'] }
