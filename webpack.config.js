@@ -45,11 +45,11 @@ module.exports = {
   },
   module: {
     rules: [
-      { enforce: 'pre', test: /.ts$/, loader: 'tslint', exclude: /node_modules/ },
-      { test: /.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/ },
-      { test: /.json$/, loader: 'json-loader' },
-      { test: /.html$/, loader: 'raw' },
-      { test: /.css$/, loaders: ['css-to-string', 'css'] }
+      { test: /\.ts$/, loader: 'tslint', exclude: /node_modules/, enforce: 'pre' },
+      { test: /\.ts$/, loader: 'awesome-typescript', exclude: /node_modules/ },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.html$/, loader: 'raw' },
+      { test: /\.css$/, loaders: ['css-to-string', 'css'] }
     ]
   },
   plugins: plugins,
